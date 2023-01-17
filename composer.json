@@ -2,9 +2,6 @@
     "name": "vdes/permision_roles",
     "description": "VDES User Permissions Roles",
     "type": "library",
-    "require": {
-        "php": "^7.3|^8.0"
-    },
     "license": "MIT",
     "autoload": {
         "psr-4": {

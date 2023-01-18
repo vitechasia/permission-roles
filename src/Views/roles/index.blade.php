@@ -9,7 +9,7 @@
             </div>
             <div class="page-btn">
                 @role('roles-create')
-                    <a class="btn btn-added" href="{{ route('roles.create') }}"><img src="assets/img/icons/plus.svg" class="me-2" alt="img"> Tambah Baru</a>
+                    <a class="btn btn-added" href="{{ route('roles.create') }}"><img src="{{url('/assets/img/icons/plus.svg')}}" class="me-2" alt="img"> Tambah Baru</a>
                 @endrole
             </div>
         </div>

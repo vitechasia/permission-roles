@@ -22,7 +22,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{route('permissions.store',$permissions->id)}}" method="post" class="form form-vertical">
+                    <form action="{{route('permissions.update',$permissions->id)}}" method="post" class="form form-vertical">
                         @csrf
                         @method('PUT')
                         <div class="form-body">
@@ -37,7 +37,7 @@
                                 <div class="col-12 pt-2 border-top">
                                     <button type="submit" class="btn btn-submit me-2">Proses</button>
                                     <a class="btn btn-cancel"
-                                        href="{{ route('roles.index') }}"> Batal</a>
+                                        href="{{ route('permissions.index') }}"> Batal</a>
                                 </div>
                             </div>
                         </div>

@@ -20,7 +20,7 @@ class PermissionsController extends Controller
     public function index(Request $request)
     {
         $title = "Permission";
-        $pagination  = 2;
+        $pagination  = 10;
         $permissions = Permission::when($request->keyword, function ($query) use ($request) {
                 $query->where('name', 'like', "%{$request->keyword}%");
             })->orderBy('id', 'DESC')->paginate($pagination);

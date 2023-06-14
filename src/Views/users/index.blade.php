@@ -9,7 +9,7 @@
             </div>
             <div class="page-btn">
                 @role('users-create')
-                    <a class="btn btn-added" href="{{ route('users.create') }}"><img src="assets/img/icons/plus.svg" class="me-2" alt="img"> Tambah Baru</a>
+                    <a class="btn btn-added" href="{{ route('users.create') }}"><img src="{{url('/assets/img/icons/plus.svg')}}" class="me-2" alt="img"> Tambah Baru</a>
                 @endrole
             </div>
         </div>
@@ -71,9 +71,11 @@
                                                         href="{{ route('users.edit', $user->id) }}">Ubah</a>
                                                 @endrole
                                                 @role('users-delete')
-                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
-                                                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
-                                                    {!! Form::close() !!}
+                                                <form action="{{route('users.destroy',$user->id)}}" method="post" style="display:inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                                </form>
                                                 @endrole
                                             </center>
                                         </td>

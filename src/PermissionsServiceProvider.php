@@ -29,7 +29,6 @@ class PermissionsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        require  __DIR__ . '/routes.php';
         try {
             Permission::get()->map(function ($permission) {
                 Gate::define($permission->slug, function ($user) use ($permission) {
@@ -40,18 +39,12 @@ class PermissionsServiceProvider extends ServiceProvider
             report($e);
             return false;
         }
-
-        //Blade directives
         Blade::directive('role', function ($role) {
-             return "<?php if(auth()->check() && auth()->user()->can({$role})) :?>"; //return this if statement inside php tag
+             return "<?php if(auth()->check() && auth()->user()->can({$role})) :?>";
         });
 
         Blade::directive('endrole', function ($role) {
-             return "<?php endif; ?>"; //return this endif statement inside php tag
+             return "<?php endif; ?>";
         });
-
-        $this->publishes([
-            __DIR__ . '/Views'   => resource_path('views/template/dreams/modul'),
-        ], 'view');
     }
 }

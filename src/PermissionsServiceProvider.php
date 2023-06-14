@@ -19,6 +19,8 @@ class PermissionsServiceProvider extends ServiceProvider
         $this->app->bind(PermisionsRoles::class,function(){
             return new PermisionsRoles;
         });
+        $this->app->make('\Vdes\PermisionRoles\RolesController');
+        $this->app->make('\Vdes\PermisionRoles\PermissionsController');
         app('router')->aliasMiddleware('permission', \Vdes\PermisionRoles\Middleware\PermissionMiddleware::class);
     }
 
